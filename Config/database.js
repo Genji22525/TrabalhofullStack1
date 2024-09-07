@@ -1,23 +1,23 @@
 module.exports = {
     development: {
-      username: 'arthur',   // seu nome de usuário do PostgreSQL
-      password: 'senha',     // sua senha do PostgreSQL
+      username: 'root',   // seu nome de usuário do mysqlQL
+      password: '',     // sua  do mysqlQL
       database: 'api',  // nome do seu banco de dados
       host: 'localhost',     // host do banco de dados
-      dialect: 'postgres',   // define o dialeto como postgres
+      dialect: 'mysql',   // define o dialeto como mysql
     },
     test: {
-      username: 'arthur',
-      password: 'senha',
+      username: 'root',
+      password: '',
       database: 'api',
       host: 'localhost',
-      dialect: 'postgres',
+      dialect: 'mysql',
     },
     production: {
-      username: 'arthur',
-      password: 'senha',
+      username: 'root',
+      password: '',
       database: 'api',
       host: 'localhost',
-      dialect: 'postgres',
+      dialect: 'mysql',
     }
   };

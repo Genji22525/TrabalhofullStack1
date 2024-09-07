@@ -1,8 +1,14 @@
 const { Pessoa } = require('../Models');
+
 exports.createPessoa = async (req, res) => {
   try {
     const { Nome, CPF, Telefone } = req.body;
-    
+
+    // Valida se os campos obrigatórios estão presentes
+    if (!Nome || !CPF || !Telefone) {
+      return res.status(400).json({ error: 'Campos obrigatórios ausentes', details: 'Nome, CPF e Telefone são obrigatórios.' });
+    }
+
     const novaPessoa = await Pessoa.create({
       Nome,
       CPF,
@@ -15,7 +21,6 @@ exports.createPessoa = async (req, res) => {
   }
 };
 
-
 exports.getAllPessoas = async (req, res) => {
   try {
     const pessoas = await Pessoa.findAll();
@@ -24,7 +29,6 @@ exports.getAllPessoas = async (req, res) => {
     res.status(500).json({ error: 'Erro ao buscar pessoas', details: error.message });
   }
 };
-
 
 exports.getPessoaById = async (req, res) => {
   try {
@@ -41,7 +45,6 @@ exports.getPessoaById = async (req, res) => {
   }
 };
 
-
 exports.updatePessoa = async (req, res) => {
   try {
     const { id } = req.params;
@@ -50,6 +53,11 @@ exports.updatePessoa = async (req, res) => {
 
     if (!pessoa) {
       return res.status(404).json({ error: 'Pessoa não encontrada' });
+    }
+
+    // Valida se os campos obrigatórios estão presentes
+    if (!Nome || !CPF || !Telefone) {
+      return res.status(400).json({ error: 'Campos obrigatórios ausentes', details: 'Nome, CPF e Telefone são obrigatórios.' });
     }
 
     await pessoa.update({
@@ -64,7 +72,6 @@ exports.updatePessoa = async (req, res) => {
   }
 };
 
-
 exports.deletePessoa = async (req, res) => {
   try {
     const { id } = req.params;
@@ -75,8 +82,8 @@ exports.deletePessoa = async (req, res) => {
     }
 
     await pessoa.destroy();
-    res.status(204).send(); 
+    res.status(204).send();
   } catch (error) {
     res.status(500).json({ error: 'Erro ao deletar pessoa', details: error.message });
   }
-}
+};

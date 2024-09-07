@@ -1,23 +1,23 @@
 {
     "development": {
-      "username": "arthur",
-      "password": "senha",
+      "username": "root",
+      "password": "",
       "database": "api",
       "host": "localhost",
-      "dialect": "postgres"
+      "dialect": "mysql"
     },
     "test": {
-      "username": "arthur",
-      "password": "senha",
+      "username": "root",
+      "password": "",
       "database": "api",
       "host": "localhost",
-      "dialect": "postgres"
+      "dialect": "mysql"
     },
     "production": {
-      "username": "arthur",
-      "password": "senha",
+      "username": "root",
+      "password": "",
       "database": "api",
       "host": "localhost",
-      "dialect": "postgres"
+      "dialect": "mysql"
     }
   }
